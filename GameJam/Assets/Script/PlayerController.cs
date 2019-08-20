@@ -31,9 +31,9 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.tag == "goal")
+        if (collision.gameObject.tag == "goal")
         {
-            collision.tag = "";
+            collision.gameObject.tag = "Untagged";
             Debug.Log(0);
         }
     }
