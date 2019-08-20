@@ -23,8 +23,11 @@ public class InstanceObj : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = 10.0f;
+            Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
             // オブジェクトの生成
-            Instantiate(m_obj[(int)VALUE_OBJECT.BOX], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity);
+            Instantiate(m_obj[(int)VALUE_OBJECT.BOX], objPos, Quaternion.identity);
         }
     }
 }
