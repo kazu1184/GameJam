@@ -29,6 +29,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.tag == "goal")
+        {
+            collision.tag = "";
+            Debug.Log(0);
+        }
+    }
+
     public float GetAim(Vector3 pos1, Vector3 pos2)
     {
         float dx = pos2.x - pos1.x;
@@ -46,4 +55,5 @@ public class PlayerController : MonoBehaviour
         v.y = 0.0f;
         this.GetComponent<Rigidbody>().velocity = v;
     }
+
 }
