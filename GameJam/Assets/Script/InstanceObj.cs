@@ -30,6 +30,7 @@ public class InstanceObj : MonoBehaviour
             objPos.y = 0.5f;
             // オブジェクトの生成
             temp = Instantiate(m_obj[(int)VALUE_OBJECT.BOX], objPos, Quaternion.identity);
+            DontDestroyOnLoad(temp);
         }
     }
 }
