@@ -21,10 +21,15 @@ public class InstanceObj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        GameObject temp;
+        if (Input.GetMouseButtonDown(0))
         {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = 10.0f;
+            Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
+            objPos.y = 0.5f;
             // オブジェクトの生成
-            Instantiate(m_obj[(int)VALUE_OBJECT.BOX], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity);
+            temp = Instantiate(m_obj[(int)VALUE_OBJECT.BOX], objPos, Quaternion.identity);
         }
     }
 }
