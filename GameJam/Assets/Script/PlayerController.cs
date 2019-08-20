@@ -7,17 +7,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float m_speed;
 
+    bool m_flag = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        // 最初は存在しない
+        //this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(1) && !m_flag)
         {
+            m_flag = true;
+
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 10.0f;
             Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
