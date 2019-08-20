@@ -6,13 +6,39 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     float m_speed;
+    [SerializeField]
+    GameObject m_startPos;
     bool m_pushFlag = false;
     bool m_goalFlag = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        Vector3 temp = m_startPos.GetComponent<StartGoalPosObj>().GetStartWallVec3();
 
+        temp.y = 1.0f; 
+
+        float z = 5;
+        float x = 5;
+
+        if(temp.z <= -z)
+        {
+            temp.z += 1.0f;
+        }
+        else if(temp.z >= z)
+        {
+            temp.z -= 1.0f;
+        }
+        if (temp.x <= -x)
+        {
+            temp.x += 1.0f;
+        }
+        else if(temp.x >= x)
+        {
+            temp.x -= 1.0f;
+        }
+
+        this.transform.position = temp;
     }
 
     // Update is called once per frame
