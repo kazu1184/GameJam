@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 temp = m_startPos.GetComponent<StartGoalPosObj>().GetStartWallVec3();
 
-        temp.y = 1.0f; 
+        temp.y = 1.0f;
 
         float z = 5;
         float x = 5;
@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
         {
             m_goalFlag = true;
             collision.gameObject.tag = "Untagged";
-            Debug.Log(0);
         }
     }
 

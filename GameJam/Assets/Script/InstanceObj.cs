@@ -30,6 +30,8 @@ public class InstanceObj : MonoBehaviour
             objPos.y = 0.5f;
             // オブジェクトの生成
             temp = Instantiate(m_obj[(int)VALUE_OBJECT.BOX], objPos, Quaternion.identity);
+            Color randomColor = new Color( Random.value, Random.value, Random.value, 1.0f );
+            temp.GetComponent<Renderer>().material.color = randomColor;
             DontDestroyOnLoad(temp);
         }
     }
