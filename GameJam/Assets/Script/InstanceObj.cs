@@ -28,9 +28,15 @@ public class InstanceObj : MonoBehaviour
             mousePos.z = 10.0f;
             Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
             objPos.y = 0.5f;
-            // オブジェクトの生成
-            temp = Instantiate(m_obj[(int)VALUE_OBJECT.BOX], objPos, Quaternion.identity);
-            DontDestroyOnLoad(temp);
+
+            float area = 4.0f;
+            if(objPos.x <= area && objPos.x >= -area && objPos.z <= area && objPos.z >= -area)
+            {
+                // オブジェクトの生成
+                temp = Instantiate(m_obj[(int)VALUE_OBJECT.BOX], objPos, Quaternion.identity);
+                DontDestroyOnLoad(temp);
+
+            }
         }
     }
 }

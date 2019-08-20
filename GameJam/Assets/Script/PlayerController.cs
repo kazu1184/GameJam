@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour
     float m_speed;
     [SerializeField]
     GameObject m_startPos;
+    int m_count;
+    int m_time;
     bool m_pushFlag = false;
     bool m_goalFlag = false;
 
@@ -61,13 +64,20 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "goal")
+        if(collision.gameObject.tag == "obj")
+        {
+            Debug.Log("yes");
+            m_count++;
+        }
+
+        if (collision.gameObject.tag == "goal" && m_count > 0)
         {
             m_goalFlag = true;
             collision.gameObject.tag = "Untagged";
             Debug.Log(0);
         }
     }
+
 
     public bool GetGoalFlag()
     {

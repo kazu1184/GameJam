@@ -13,6 +13,7 @@ public class GameManger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // オブジェクトを置くフェーズ
         m_playerController = m_sphere.GetComponent<PlayerController>();
         m_sphere.SetActive(false);
     }
@@ -20,7 +21,8 @@ public class GameManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        // 弾を出す
+        if(Input.GetKeyDown(KeyCode.W))
         {
             m_sphere.SetActive(true);
             m_objContoroller.SetActive(false);
