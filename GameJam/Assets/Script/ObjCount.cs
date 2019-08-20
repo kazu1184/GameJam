@@ -16,8 +16,9 @@ public class ObjCount : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            count -= 1;
 
+            collision.gameObject.GetComponent<Renderer>().material.color = this.gameObject.GetComponent<Renderer>().material.color;
+            count -= 1;
             if (count <= 0)
             {
                 Debug.Log("dest");
